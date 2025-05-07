@@ -197,10 +197,10 @@ export const ChatInput = () => {
   return (
     <div className={styles.container}>
       <div className={styles.toolbar}>
-      /*  <TemplateSelector 
+        {/*  <TemplateSelector 
           onSelect={handleTemplateSelect}
           disabled={isLoading} 
-        /> */
+        /> */}
         <div className={styles.toolbarActions}>
           {/* <Upload
             multiple
