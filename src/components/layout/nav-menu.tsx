@@ -17,21 +17,8 @@ const menuItems = [
     icon: <MessageOutlined />,
     label: <Link href="/chat">对话</Link>,
   },
-  {
-    key: '/templates',
-    icon: <BookOutlined />,
-    label: <Link href="/templates">提示词模板</Link>,
-  },
-  {
-    key: '/functions',
-    icon: <FunctionOutlined />,
-    label: <Link href="/functions">函数配置</Link>,
-  },
-  {
-    key: '/workflows',
-    icon: <FunctionOutlined />,
-    label: <Link href="/workflows ">COZE插件配置</Link>,
-  },
+
+  
   {
     key: '/functions',
     icon: <SettingOutlined />,
