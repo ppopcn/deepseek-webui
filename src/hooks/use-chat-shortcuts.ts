@@ -10,9 +10,9 @@ export function useChatShortcuts({ onSend, onClear }: ShortcutConfig) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Ctrl/Cmd + Enter 发送消息
-      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-        onSend();
-      }
+if (e.key === 'Enter') {
+  onSend();
+}
       // Ctrl/Cmd + K 清空对话
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
