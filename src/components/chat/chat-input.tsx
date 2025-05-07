@@ -202,27 +202,10 @@ export const ChatInput = () => {
           disabled={isLoading} 
         /> */}
         <div className={styles.toolbarActions}>
-          {/* <Upload
-            multiple
-            showUploadList={false}
-            beforeUpload={handleFileUpload}
-            onChange={({ fileList }) => setFileList(fileList)}
-            fileList={fileList}
-          >
-            <Tooltip title="上传文件">
-              <Button
-                icon={<PaperClipOutlined />}
-                disabled={isLoading}
-              />
-            </Tooltip>
-          </Upload> */}
-          <Tooltip title="导出对话">
-            <Button
-              icon={<DownloadOutlined />}
-              onClick={handleExport}
-              disabled={messages.length === 0}
-            />
-          </Tooltip>
+
+          
+
+          
           <Tooltip title="清空对话">
             <Button
               icon={<DeleteOutlined />}
@@ -237,7 +220,7 @@ export const ChatInput = () => {
           <Input.TextArea
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder={fileList.length > 0 ? "请输入关于文件的问题..." : "输入消息... (Ctrl + Enter 发送)"}
+            placeholder={fileList.length > 0 ? "请输入关于文件的问题..." : "输入消息... (Enter 发送)"}
             autoSize={{ minRows: 1, maxRows: 4 }}
             className={styles.textarea}
           />
