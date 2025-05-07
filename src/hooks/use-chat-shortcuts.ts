@@ -9,7 +9,7 @@ interface ShortcutConfig {
 export function useChatShortcuts({ onSend, onClear }: ShortcutConfig) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Ctrl/Cmd + Enter 发送消息
+      // Ctrl/Cmd + Enter 发送消息 
 if (e.key === 'Enter') {
   onSend();
 }
