@@ -211,7 +211,7 @@ export const ChatInput = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={fileList.length > 0 ? "请输入关于文件的问题..." : "输入消息... (Enter 发送)"}
-            autoSize={{ minRows: 1, maxRows: 4 }}
+            autoSize={{ minRows: 3, maxRows: 8 }}
             className={styles.textarea}
           />
           <Tooltip title="发送 (Ctrl + Enter)">
