@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Input, Button, message, Tooltip, Modal, Upload } from 'antd';
+import { Input, Button, message, Tooltip, Upload } from 'antd';
 import { SendOutlined, DeleteOutlined, DownloadOutlined, PaperClipOutlined } from '@ant-design/icons';
 import { useChatStore } from '@/lib/store/chat-store';
 import { useSettingsStore } from '@/lib/store/settings-store';
@@ -143,11 +143,8 @@ export const ChatInput = () => {
     onSend: handleSubmit,
     onClear: () => {
       if (messages.length > 0) {
-        Modal.confirm({
-          title: '确认清空',
-          content: '确定要清空所有对话记录吗？此操作不可恢复。',
-          onOk: clearMessages,
-        });
+        clearMessages();
+        message.success('对话已清空');
       }
     },
   });
@@ -179,11 +176,8 @@ export const ChatInput = () => {
 
   const handleClear = () => {
     if (messages.length > 0) {
-      Modal.confirm({
-        title: '确认清空',
-        content: '确定要清空所有对话记录吗？此操作不可恢复。',
-        onOk: clearMessages,
-      });
+      clearMessages();
+      message.success('对话已清空');
     }
   };
 
@@ -202,10 +196,6 @@ export const ChatInput = () => {
           disabled={isLoading} 
         /> */}
         <div className={styles.toolbarActions}>
-
-          
-
-          
           <Tooltip title="清空对话">
             <Button
               icon={<DeleteOutlined />}
@@ -256,4 +246,4 @@ export const ChatInput = () => {
       </form>
     </div>
   );
-}; 
+};
