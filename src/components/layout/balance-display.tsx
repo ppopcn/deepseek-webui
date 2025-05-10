@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Card, Statistic, Tooltip } from 'antd';
+import { Card, Statistic, Tooltip, Button } from 'antd';
 import { WalletOutlined } from '@ant-design/icons';
 import { useSettingsStore } from '@/lib/store/settings-store';
 import { getBalance, BalanceResponse } from '@/lib/api/deepseek';
@@ -48,6 +48,11 @@ export const BalanceDisplay = () => {
   const cnyBalance = balance.balance_infos.find(info => info.currency === 'CNY');
   if (!cnyBalance) return null;
 
+  // 点击打开链接
+  const handleClick = () => {
+    window.open('https://platform.deepseek.com/usage', '_blank');
+  };
+
   return (
     <div className={styles.container}>
       <Card loading={loading} bordered={false} size="small" className={styles.card}>
@@ -59,15 +64,17 @@ export const BalanceDisplay = () => {
             </>
           }
         >
-          <Statistic
-            title="账户余额"
-            value={cnyBalance.total_balance}
-            prefix={<WalletOutlined />}
-            suffix="¥"
-            precision={2}
-          />
+          <Button type="text" onClick={handleClick} style={{ padding: 0, width: '100%' }}>
+            <Statistic
+              title="账户余额"
+              value={cnyBalance.total_balance}
+              prefix={<WalletOutlined />}
+              suffix="¥"
+              precision={2}
+            />
+          </Button>
         </Tooltip>
       </Card>
     </div>
   );
-}; 
+};
