@@ -30,12 +30,10 @@ export const BalanceDisplay = () => {
     }
   };
 
-  // 监听 apiKey 变化
   useEffect(() => {
     fetchBalance();
   }, [apiKey]);
 
-  // 定时刷新
   useEffect(() => {
     if (!apiKey) return;
     
@@ -65,9 +63,19 @@ export const BalanceDisplay = () => {
             prefix={<WalletOutlined />}
             suffix="¥"
             precision={2}
+            valueRender={(node) => (
+              <a 
+                href="https://platform.deepseek.com/usage" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                {node}
+              </a>
+            )}
           />
         </Tooltip>
       </Card>
     </div>
   );
-}; 
+};
