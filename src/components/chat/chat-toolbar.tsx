@@ -1,21 +1,14 @@
 'use client';
 
-import { Button, Tooltip, Modal, message } from 'antd';
-import { DeleteOutlined, DownloadOutlined, ClearOutlined } from '@ant-design/icons';
+import { Button, Tooltip, message } from 'antd';
+import { DeleteOutlined, DownloadOutlined } from '@ant-design/icons';
 import { useChatStore } from '@/lib/store/chat-store';
-import { useState } from 'react';
 
 export function ChatToolbar() {
   const { messages, clearMessages } = useChatStore();
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClear = () => {
-    setIsModalOpen(true);
-  };
-
-  const confirmClear = () => {
     clearMessages();
-    setIsModalOpen(false);
     message.success('对话已清空');
   };
 
@@ -63,17 +56,6 @@ export function ChatToolbar() {
           />
         </Tooltip>
       </div>
-
-      <Modal
-        title="确认清空"
-        open={isModalOpen}
-        onOk={confirmClear}
-        onCancel={() => setIsModalOpen(false)}
-        okText="确认"
-        cancelText="取消"
-      >
-        <p>确定要清空所有对话记录吗？此操作不可恢复。</p>
-      </Modal>
     </div>
   );
-} 
+}
