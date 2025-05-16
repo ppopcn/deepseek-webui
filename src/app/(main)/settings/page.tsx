@@ -20,12 +20,8 @@ const items = [
     icon: <ToolOutlined />,
     children: <SettingsPanel />,
   },
-  {
-    key: 'account',
-    label: '账号设置',
-    icon: <UserOutlined />,
-    children: <div>账号设置内容</div>,
-  },
+
+  
 ];
 
 export default function SettingsPage() {
